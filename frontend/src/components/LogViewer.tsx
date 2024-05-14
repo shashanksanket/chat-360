@@ -11,8 +11,7 @@ interface LogViewerProps {
 const LogViewer: React.FC<LogViewerProps> = ({ logs, totalPages, onPageChange, currentPage }) => {
   return (
     <div className="overflow-auto h-full w-[80%] mt-20 text-white">
-      {logs.length > 0 ? (
-
+      {Array.isArray(logs) && logs.length > 0 ? (
         <table className="w-full text-left border-collapse">
           <thead>
             <tr>
@@ -31,7 +30,6 @@ const LogViewer: React.FC<LogViewerProps> = ({ logs, totalPages, onPageChange, c
                 <td className="p-2 border-b">{log.metadata.source}</td>
               </tr>
             ))}
-
           </tbody>
         </table>
       ) : (
@@ -40,6 +38,7 @@ const LogViewer: React.FC<LogViewerProps> = ({ logs, totalPages, onPageChange, c
         </p>
       )}
 
+      {/* Pagination controls */}
       <div className="flex justify-center mt-4">
         <button
           onClick={() => onPageChange(1)}
@@ -73,5 +72,6 @@ const LogViewer: React.FC<LogViewerProps> = ({ logs, totalPages, onPageChange, c
     </div>
   );
 }
+
 
 export default LogViewer;
