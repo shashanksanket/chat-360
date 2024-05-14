@@ -24,7 +24,8 @@ function App() {
   }, [currentPage]);
 
   const fetchLogs = (page: number) => {
-    axios.get(`http://localhost:3001/api/v1/logs?page=${page}`)
+    const apiUrl = process.env.REACT_APP_API_URL
+    axios.get(`${apiUrl}/api/v1/logs?page=${page}`)
       .then(response => {
         setLogs(response.data);
         setFilteredLogs(response.data);
