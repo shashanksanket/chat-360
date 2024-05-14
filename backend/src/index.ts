@@ -13,14 +13,12 @@ app.use("/api/v1", router);
 app.get('/', (req: Request, res: Response) => {
   res.send("Welcome")
 });
+const corsOptions = {
+  credentials: true,
+  origin: ['https://chat-360.vercel.app/', '*']
+};
+app.use(cors(corsOptions));
 
-app.use(function(req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  res.setHeader('Access-Control-Allow-Credentials', "true");
-  next();
-});
 
 
 router.get('/logs', (req: Request, res: Response) => {
