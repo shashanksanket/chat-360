@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
+
 import SearchBar from './components/SearchBar';
 import LogViewer from './components/LogViewer';
 import './App.css';
+
 
 export interface LogEntry {
   level: string;
@@ -23,15 +25,22 @@ function App() {
     fetchLogs(currentPage);
   }, [currentPage]);
 
+
   const fetchLogs = (page: number) => {
-    const apiUrl = process.env.REACT_APP_API_URL
-    axios.get(`${apiUrl}/api/v1/logs?page=${page}`)
-      .then(response => {
+    const apiUrl = process.env.REACT_APP_API_URL;
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      }
+    };
+    axios.get(`${apiUrl}/api/v1/logs?page=${page}`, config)
+      .then((response: AxiosResponse) => {
         setLogs(response.data);
         setFilteredLogs(response.data);
         setTotalPages(Math.ceil(response.headers['x-total-count'] / 10));
       })
-      .catch(error => console.error('Error fetching logs:', error));
+      .catch((error: any) => console.error('Error fetching logs:', error));
   };
 
   const handleSearch = (query: string, level: string) => {
