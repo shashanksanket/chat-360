@@ -16,7 +16,7 @@ app.get('/', (req: Request, res: Response) => {
 
 app.use(cors())
 
-router.get('/api/v1/logs', (req: Request, res: Response) => {
+router.get('/logs', (req: Request, res: Response) => {
   const page: number = parseInt(req.query.page as string, 10) || 1;
   const limit: number = parseInt(req.query.limit as string, 10) || 1;
 
