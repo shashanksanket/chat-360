@@ -1,0 +1,47 @@
+{
+  "apis": {
+    "api-one": {
+      "level": ["info","error","success"],
+      "filePath": "log1.log"
+    },
+    "api-two": {
+      "level": ["info","error","success"],
+      "filePath": "log2.log"
+    },
+    "api-three": {
+      "level": ["info","error","success"],
+      "filePath": "log3.log"
+    },
+    "api-four": {
+      "level": ["info","error","success"],
+      "filePath": "log4.log"
+    },
+    "api-five": {
+      "level": ["info","error","success"],
+      "filePath": "log5.log"
+    },
+    "api-six": {
+      "level": ["info","error","success"],
+      "filePath": "log6.log"
+    },
+    "api-seven": {
+      "level": ["info","error","success"],
+      "filePath": "log7.log"
+    },
+    "api-eight": {
+      "level": ["info","error","success"],
+      "filePath": "log8.log"
+    },
+    "api-nine": {
+      "level": ["info","error","success"],
+      "filePath": "log9.log"
+    },
+    "api-ten": {
+      "level": ["info","error","success"],
+      "filePath": "log10.log"
+    },
+    "error-log": {
+      "filePath": "errors.log"
+    }
+  }
+}
