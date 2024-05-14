@@ -14,7 +14,21 @@ app.get('/', (req: Request, res: Response) => {
   res.send("Welcome")
 });
 
-app.use(cors())
+const corsOpts = {
+  origin: '*',
+
+  methods: [
+    'GET',
+    'POST',
+  ],
+
+  allowedHeaders: [
+    'Content-Type',
+  ],
+};
+
+app.use(cors(corsOpts));
+
 
 router.get('/logs', (req: Request, res: Response) => {
   const page: number = parseInt(req.query.page as string, 10) || 1;
